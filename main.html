@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <title> Covid Search | Desmond Nyamador </title>
+</head>
+<body>
+        <main class="col-11-12 m-auto">
+
+            <div class="loader loader--style3" title="2" style="text-align: center;justify-content: center;align-items: center;margin-top: 50vh;display: none;">
+                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                        <path fill="#E60023" d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z" transform="rotate(187.546 25 25)">
+                          <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform>
+                          </path>
+                </svg>
+            </div>          
+
+            <section class="results-screen p-10" id="results" style="display: none;">
+                <div class="divider mt-20">
+                    <strong class="divider-title ng-binding">Results</strong>
+                </div>
+
+                <div class="country-flag" style="text-align: center;">
+                    <img src="us.png">
+                </div>
+                
+                <h2>Ghana </h2>
+
+                <p class="p-12"></p>
+                <address class="p-12"> Lat: 23  Long: 43</address>
+                <p class="p-12">Cases 10</p>
+                <p class="p-12"> todayCases</p>
+
+                <p class="p-12">Deaths</p>
+                <p class="p-12">Recovered </p>
+                <p class="p-12">1585683936973</p> 
+
+                <button class="btn btn-block btn-blue">Blue</button> -->
+            </section>
+
+            
+            <section class="search-screen" style="margin-top: 30vh;">
+                    <div class="p-8">
+                        <form id="search">
+                            <div class="p-8" style="text-align: center;">
+                                    <h1 class="mb-10">Covid Search</h1>
+                                    <p>Enter Your Country Name Below</p>
+                                </div>                            
+                            <div class="m-10">
+                                <input type="text" name="search-bar" id="text" placeholder="Search Country" class="form-control search-bar">
+                                <button class="btn btn-block btn-green mt-20" type="submit">Submit </button>
+                            </div>
+                        </form>
+                    </div>
+            </section>
+
+
+        </main>
+
+        <script src="dist/search.js"></script>
+        <script type="text/javascript">
+        </script>
+</body>
+</html>

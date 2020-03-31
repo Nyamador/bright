@@ -3,31 +3,55 @@
 const searchForm = document.querySelector('#search');
 const searchScreen = document.querySelector('.search-screen');
 const searchBar = document.querySelector('.search-bar');
-const resultContainer = document.querySelector('.result');
+const resultContainer = document.querySelector('.results-screen');
+const loader = document.querySelector('.loader');
+const countryFlag = document.querySelector('.country-flag');
 
 
-function SearchByCountry(country){
+function hide(element){
+    element.style.display = 'none';
+}
+
+function show(element){
+    element.style.display = 'block';
 }
 
 
 searchForm.addEventListener('submit', function(event){
     event.preventDefault(); //Prevent the default behaviour of the form
+
     fetch(`https://corona.lmao.ninja/countries/${searchBar.value}`)
     .then( response => {
-       return response.json()
+        hide(searchScreen); //Hide the search screen
+        show(loader); // Show the loader
+        return response.json()
     })
     .then( data => {
         console.log(data)
-        resultContainer.append(`
-        <p> Result : ${data.country} </p>
+        hide(loader);
+        const flag = document.createElement('img');
+        flag.src = `${data.countryInfo.flag}`
+        countryFlag.appendChild(flag);
         
-        <p> Cases : ${data.cases} </p>
-        <p> Todays Cases : ${data.todayCases} </p>
-        <p> Deaths : ${data.deaths} </p>
-        <p> Todays Deaths : ${data.todayDeaths} </p>
-        `);
-        searchScreen.style.display = 'None';
-        resultContainer.style.display = 'block';
+        const country  = document.createElement('h1');
+        country.textContent = `${data.country}`
+        country.style.padding = '8';
+        resultContainer.appendChild(country);
+        
+        const latlong = document.createElement('p');
+        latlong.textContent = `Latitude : ${data.countryInfo.lat} Longittude : ${data.countryInfo.long}`
+        show(resultContainer);
+
+
+        // resultContainer.append(`
+        
+        // <p> Cases : ${data.cases} </p>
+        // <p> Todays Cases : ${data.todayCases} </p>
+        // <p> Deaths : ${data.deaths} </p>
+        // <p> Todays Deaths : ${data.todayDeaths} </p>
+        // `);
+        // searchScreen.style.display = 'None';
+        // resultContainer.style.display = 'block';
     })
     .catch( err => {
         console.log(err)
