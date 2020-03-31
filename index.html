@@ -3,46 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="index.css" rel="stylesheet">
+    <title>Corona Search | Desmond Nyamador </title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    
-    <main class="main-content">
-        <!-- The blue part -->
-        <header class="header">
-            <div class="logo-container">
-                <img src="glyph_french_vanilla.svg" class="raw-logo" alt="Dropbox logo">
-                <img src="wordmark_white.svg" class="second-logo" alt="Dropbox logo">
 
-                <div class="links">
-                    <a href="#" class="link">For Teams</a>
-                    <a href="#" class="link">For Individuals</a>
-                </div>
+    <main class="search-screen">
 
-            </div>  
+        <form class="main-search" id="search">
+            <h4>Covid Search</h4>
+        <section class="search-form">
 
-            <div class="action-links">
-                <a href="#" class="link">Sign In</a>
-                <a href="#" class="link">Sign Up</a>
-            </div>
-        </header>
+            <div class="hsuHs"><span class="wFncld z1asCe MZy1Rb"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></span></div>
 
-        <section class="hero-section">
-            <div class="text-container">
-
-                <p style="font-size: 25px;">Dropbox</p>
-                <h1 class="hero-h1">
-                    Focus on the work that matters
-                </h1>
-
-                <P style="max-width: 500px;
-                margin-top: 10px;">
-                    Dropbox is the world’s first smart workspace. We bring all your team’s content together while letting you use the tools you love. And we help cut through the clutter, surfacing what matters most.
-                </P>
-            </div>
+            <input class="search-bar" type="text" placeholder="Enter A Country Name">
         </section>
+    </form>
+
     </main>
+
+    <section>
+        
+        <div class="result" style="display: none;display: flex; flex-direction: column;">
+            <!-- <h4 >Results</h4>
+            <img src="us.png" class="result-image">
+            <p>sdfd</p> -->
+            
+        </div>
+    </section>
+
+
+    
+    <script src="dist/search.js"></script>
 </body>
 </html>

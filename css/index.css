@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
+
+.main-search{
+    text-align: center;
+}
+
+.search-form{
+    width: 582px;
+    background: #fff;
+    display: flex;
+    border: 1px solid #dfe1e5;
+    box-shadow: none;
+    border-radius: 24px;
+    /* z-index: 3; */
+    height: 50px;
+    margin: auto;
+    width: 482px;
+}
+
+.search-bar{
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: rgba(32, 32, 32, 0.87);
+    word-wrap: break-word;
+    outline: none;
+    display: flex;
+    flex: 100%;
+    -webkit-tap-highlight-color: transparent;
+    font-size: 16px;
+    height: 50px;
+}
+
+.wFncld {
+    margin-top: 3px;
+    color: #9AA0A6;
+    height: 20px;
+    width: 20px;
+}
+
+.z1asCe {
+    display: inline-block;
+    fill: currentColor;
+    height: 24px;
+    line-height: 24px;
+    position: relative;
+    width: 24px;
+}
+
+.hsuHs {
+    margin: auto;
+    padding: 12px;
+}
+
+.result{
+    /* height: 160px;
+    width: 454px; */
+
+}
+
+.result-image{
+    border-radius: 8px;
+}
+
+/* {
+    country: "Israel",
+    countryInfo: {
+    _id: 376,
+    iso2: "IL",
+    iso3: "ISR",
+    lat: 31.5,
+    long: 34.75,
+    flag: "https://raw.githubusercontent.com/NovelCOVID/API/master/assets/flags/il.png"
+    },
+    cases: 5358,
+    todayCases: 663,
+    deaths: 20,
+    todayDeaths: 4,
+    recovered: 224,
+    active: 5114,
+    critical: 117,
+    casesPerOneMillion: 619,
+    deathsPerOneMillion: 2,
+    updated: 1585683936973
+    } */
