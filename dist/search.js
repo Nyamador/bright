@@ -21,20 +21,35 @@ function show(element) {
     element.style.display = 'block';
 }
 
+
+
 resetBtn.addEventListener('click', function (event) {
     hide(resultContainer);
     show(searchScreen);
-    location.reload()
+    location.reload() //reload the window
 });
 
+String.prototype.escape = function() {
+    var tagsToReplace = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;'
+    };
+    return this.replace(/[&<>]/g, function(tag) {
+        return tagsToReplace[tag] || tag;
+    });
+};
+
+const breakTag = "<br>"
+const esc_br = breakTag.escape();
 
 searchForm.addEventListener('submit', function (event) {
     event.preventDefault(); //Prevent the default behaviour of the form
     fetch(`https://corona.lmao.ninja/countries/${searchBar.value}`)
         .then(response => {
-            hide(searchScreen); //Hide the search screen
             submitButton.disabled = true;
-            submitButton.value = 'Searching';
+            submitButton.textContent = 'Searching';
+            hide(searchScreen); //Hide the search screen
             show(loader); // Show the loader
             return response.json()
         })
@@ -51,10 +66,12 @@ searchForm.addEventListener('submit', function (event) {
             resultContainer.appendChild(country);
 
             const latlong = document.createElement('p');
-            latlong.textContent = `Latitude : ${data.countryInfo.lat} Longittude : ${data.countryInfo.long}`
+            latlong.textContent = `Latitude : ${data.countryInfo.lat} Longittude : ${data.countryInfo.long} `
+            latlong.classList.add('col-12-12');
+            latlong.classList.add('p-8');
             
             const caseTotal = document.createElement('strong');
-            caseTotal.textContent = `Total Cases ${data.cases}`;
+            caseTotal.textContent = `Total Cases ${data.cases}<br>`;
             if ( caseTotal.textContent < 10 )
             {
                 caseTotal.style.color = 'green';
@@ -62,44 +79,62 @@ searchForm.addEventListener('submit', function (event) {
             else{
                 caseTotal.style.color = 'red'
             }
+            caseTotal.classList.add('col-12-12');
+            caseTotal.classList.add('p-8');
             resultContainer.appendChild(caseTotal);
 
             
             const casesToday = document.createElement('strong');
             casesToday.textContent = `Cases Today : ${data.todayCases}`;
+            casesToday.classList.add('col-12-12');
+            casesToday.classList.add('p-8');
             resultContainer.appendChild(casesToday);
 
             const deathsToday = document.createElement('strong');
             deathsToday.textContent = `Deaths Today : ${data.todayDeaths}`;
             deathsToday.style.color = 'red';
+            deathsToday.classList.add('col-12-12');
+            deathsToday.classList.add('p-8');
             resultContainer.appendChild(deathsToday);
 
             const recovered = document.createElement('strong');
             recovered.textContent = `Recovered :  ${data.recovered}`;
             recovered.style.color = 'green';
+            recovered.classList.add('col-12-12');
+            recovered.classList.add('p-8');                        
             resultContainer.appendChild(recovered);  
             
             const activeCases = document.createElement('p');
             activeCases.textContent = `Active Cases : ${data.active}`;
             activeCases.style.color = 'black';
+            activeCases.classList.add('col-12-12');
+            activeCases.classList.add('p-8');        
             resultContainer.appendChild(activeCases); 
             
             const critical = document.createElement('strong');
             critical.textContent = `Critical Cases : ${data.critical}`;
             critical.style.color = 'red';
+            critical.classList.add('col-12-12'); 
+            critical.classList.add('p-8);    
             resultContainer.appendChild(critical);  
             
             const casesPerOneMillion = document.createElement('strong');
             casesPerOneMillion.textContent = `Cases Per Million : ${data.casesPerOneMillion}`;
+            casesPerOneMillion.style.padding = '8';
+            casesPerOneMillion.classList.add('col-12-12')
             resultContainer.appendChild(casesPerOneMillion); 
             
             const deathsPerOneMillion = document.createElement('strong');
             deathsPerOneMillion.textContent = `Deaths Per Million : ${data.deathsPerOneMillion}`;
+            deathsPerOneMillion.style.padding = '8';
+            deathsPerOneMillion.classList.add('col-12-12')
             resultContainer.appendChild(deathsPerOneMillion);              
 
             const lastUpdate = document.createElement('p');
             const readabledate = Date(`${data.updated}`)
             lastUpdate.textContent = `Last Updated : Date(${readabledate})`;
+            lastUpdate.style.padding = '8';
+            lastUpdate.classList.add('col-12-12')
             resultContainer.appendChild(lastUpdate);             
             
             show(resultContainer); // This should be called last
