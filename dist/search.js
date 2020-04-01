@@ -29,19 +29,8 @@ resetBtn.addEventListener('click', function (event) {
     location.reload() //reload the window
 });
 
-String.prototype.escape = function() {
-    var tagsToReplace = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;'
-    };
-    return this.replace(/[&<>]/g, function(tag) {
-        return tagsToReplace[tag] || tag;
-    });
-};
 
-const breakTag = "<br>"
-const esc_br = breakTag.escape();
+
 
 searchForm.addEventListener('submit', function (event) {
     event.preventDefault(); //Prevent the default behaviour of the form
@@ -71,7 +60,7 @@ searchForm.addEventListener('submit', function (event) {
             latlong.classList.add('p-8');
             
             const caseTotal = document.createElement('strong');
-            caseTotal.textContent = `Total Cases ${data.cases}<br>`;
+            caseTotal.textContent = `Total Cases ${data.cases}`;
             if ( caseTotal.textContent < 10 )
             {
                 caseTotal.style.color = 'green';
@@ -115,26 +104,26 @@ searchForm.addEventListener('submit', function (event) {
             critical.textContent = `Critical Cases : ${data.critical}`;
             critical.style.color = 'red';
             critical.classList.add('col-12-12'); 
-            critical.classList.add('p-8);    
+            critical.classList.add('p-8');    
             resultContainer.appendChild(critical);  
             
             const casesPerOneMillion = document.createElement('strong');
             casesPerOneMillion.textContent = `Cases Per Million : ${data.casesPerOneMillion}`;
-            casesPerOneMillion.classList.add('p-8');
-            casesPerOneMillion.classList.add('col-12-12');
+            casesPerOneMillion.classList.add('p-8');    
+            casesPerOneMillion.classList.add('col-12-12')
             resultContainer.appendChild(casesPerOneMillion); 
             
             const deathsPerOneMillion = document.createElement('strong');
             deathsPerOneMillion.textContent = `Deaths Per Million : ${data.deathsPerOneMillion}`;
-            deathsPerOneMillion.classList.add('p-8')
-            deathsPerOneMillion.classList.add('col-12-12');
+            deathsPerOneMillion.classList.add('p-8');    
+            deathsPerOneMillion.classList.add('col-12-12')
             resultContainer.appendChild(deathsPerOneMillion);              
 
             const lastUpdate = document.createElement('p');
-            const readabledate = Date(`${data.updated}`);
+            const readabledate = Date(`${data.updated}`)
             lastUpdate.textContent = `Last Updated : Date(${readabledate})`;
-            lastUpdate..classList.add('p-8');
-            lastUpdate.classList.add('col-12-12');
+            lastUpdate.classList.add('p-8');    
+            lastUpdate.classList.add('col-12-12')
             resultContainer.appendChild(lastUpdate);             
             
             show(resultContainer); // This should be called last
