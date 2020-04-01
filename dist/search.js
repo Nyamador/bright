@@ -121,20 +121,20 @@ searchForm.addEventListener('submit', function (event) {
             const casesPerOneMillion = document.createElement('strong');
             casesPerOneMillion.textContent = `Cases Per Million : ${data.casesPerOneMillion}`;
             casesPerOneMillion.style.padding = '8';
-            casesPerOneMillion.classList.add('col-12-12')
+            casesPerOneMillion.classList.add('col-12-12');
             resultContainer.appendChild(casesPerOneMillion); 
             
             const deathsPerOneMillion = document.createElement('strong');
             deathsPerOneMillion.textContent = `Deaths Per Million : ${data.deathsPerOneMillion}`;
             deathsPerOneMillion.style.padding = '8';
-            deathsPerOneMillion.classList.add('col-12-12')
+            deathsPerOneMillion.classList.add('col-12-12');
             resultContainer.appendChild(deathsPerOneMillion);              
 
             const lastUpdate = document.createElement('p');
-            const readabledate = Date(`${data.updated}`)
+            const readabledate = Date(`${data.updated}`);
             lastUpdate.textContent = `Last Updated : Date(${readabledate})`;
             lastUpdate.style.padding = '8';
-            lastUpdate.classList.add('col-12-12')
+            lastUpdate.classList.add('col-12-12');
             resultContainer.appendChild(lastUpdate);             
             
             show(resultContainer); // This should be called last
